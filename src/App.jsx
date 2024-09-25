@@ -1,4 +1,4 @@
-import { BrowserRouter,  Route, Routes } from "react-router-dom";
+import { BrowserRouter,  Navigate,  Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Product from "./pages/product";
 import Pricing from "./pages/Pricing";
@@ -39,7 +39,7 @@ export default function App() {
         <Route path="product" element={<Product />} />
         <Route path="pricing" element={<Pricing />} />
         <Route path="app" element={<AppLayout />}>
-          <Route index element={<p>List of cities</p>} />
+          <Route index element={<Navigate replace to="cities" />} />{/*THE NAVIGATE COMPONENT BASICALLY SERVES AS A REDIRECT SO AS SOON AS THE INDEX ROUTE IS HIT, IT MOVES STRAIGHT TO THE PATH. SO WE ARE GOING TO ALSO ADD THE REPLACE KEY WOR  */}
           <Route
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}

@@ -1,10 +1,11 @@
 import styles from './Button.module.css'
 function Button({onClick, children, type}) {
     return (
-        <button onClick={onClick} className={styles.btn}>
+        <button onClick={onClick} className={`${styles.btn} ${styles[type]}`}>
             {children}
         </button>
     )
 }
 
 export default Button
+// USING THE type STRING WE CAN CONDITIONALLY INCLUDE A CSS STYLE... 
