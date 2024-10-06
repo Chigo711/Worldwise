@@ -7,6 +7,7 @@ const BASE_URL = "http://localhost:9000";
 function CitiesProvider({children}){
     const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentCity, setCurrentCity] = useState({})// THIS STATE IS NEEDED IN MULTIPLE COMPONENTS, SO THAT'S WHY IT HAS TO BE PLACE INSIDE THE CONTEXT
 
   useEffect(function () {
     async function fetchCities() {
@@ -15,19 +16,41 @@ function CitiesProvider({children}){
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
         setCities(data);
-        console.log(data);
+        // console.log(data);
       } catch {
-        alert("There was an error loading data");
+        alert("There was an error loading this data");
       } finally {
         setIsLoading(false);
       }
     }
     fetchCities();
   }, []);
+  async function getCity(id){
+    // console.log("Fetching city with ID:", id);
+        try {
+          setIsLoading(true);
+          const res = await fetch(`${BASE_URL}/cities/${id}`);
+          const data = await res.json();
+          if (!res.ok) {
+            const errorText = await res.text(); // Read the response as plain text
+            throw new Error(`Error: ${res.status} - ${errorText}`); // Throw an error with status and text
+          }
+          setCurrentCity(data);
+        } catch(error) {
+          console.error("Error fetching city data:", error);
+
+          alert("There was an error loading this data");
+        } finally {
+          setIsLoading(false);
+        }
+      }
+  
   return (
     <CitiesContext.Provider value={{
         cities, 
         isLoading,
+        currentCity,
+        getCity,
     }}>
 
         {children}
