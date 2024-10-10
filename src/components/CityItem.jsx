@@ -11,13 +11,18 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 export default function CityItem({ city }) {
+  const { currentCity, deleteCity} = useCities();
   const { cityName, date, emoji, id, position } = city;
-  const { currentCity} = useCities();
 
   // .cityItem--active {
   //   border: 2px solid var(--color-brand--2);
   //   border-left: 5px solid var(--color-brand--2);
   // }
+  function handleClick(e){
+    e.preventDefault();
+    console.log("Test Click")
+    deleteCity(id)// THIS LOGIC DELETES A CITY onCLICK, AND IT COMES FROM THE CitiesContext
+  }
   
 
   return (
@@ -29,7 +34,7 @@ export default function CityItem({ city }) {
         <span className={styles.emoji}>{emoji}</span>
         <span className={styles.name}>{cityName}</span>
         <time className={styles.date}>({formatDate(date)})</time>
-        <button className={styles.deleteBtn}>&times;</button>
+        <button className={styles.deleteBtn} onClick={handleClick}>&times;</button> {/*THIS IS WHERE THE FUNCTION IS CALLED ON EACH CLICK  */}
       </Link>
     </li>
   );
