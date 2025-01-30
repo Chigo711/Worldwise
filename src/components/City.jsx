@@ -26,7 +26,7 @@ function City() {
   useEffect(()=>{
     // console.log("City ID from URL:", id);
     getCity(id)
-  }, [id])
+  }, [id, getCity])
 
   const { cityName, emoji, date, notes } = currentCity;
   if(isLoading) return <Spinner />

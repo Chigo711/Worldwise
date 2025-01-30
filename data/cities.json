@@ -22,7 +22,7 @@
         "lat": 40.46635901755316,
         "lng": -3.7133789062500004
       },
-      "id": 17806751
+      "id": "17806751"
     },
     {
       "cityName": "Berlin",
@@ -34,7 +34,43 @@
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
       },
-      "id": 98443197
+      "id": "98443197"
+    },
+    {
+      "id": "9de7",
+      "cityName": "Lagos",
+      "emoji": "🇳🇬",
+      "date": "2024-10-24T10:54:27.556Z",
+      "countryName": "NG",
+      "notes": "Visited the ALX Hub at Costain ",
+      "position": {
+        "lat": "6.482237385416176",
+        "lng": "3.3814716339111333"
+      }
+    },
+    {
+      "id": "2124",
+      "cityName": "Lagos",
+      "emoji": "🇳🇬",
+      "date": "2024-11-16T15:14:24.569Z",
+      "countryName": "NG",
+      "notes": "I had a good time here today ",
+      "position": {
+        "lat": "6.467478554701618",
+        "lng": "3.284096717834473"
+      }
+    },
+    {
+      "id": "8b86",
+      "cityName": "Lisbon",
+      "emoji": "🇵🇹",
+      "date": "2024-11-16T15:16:04.712Z",
+      "countryName": "PT",
+      "notes": "",
+      "position": {
+        "lat": "38.727744777623556",
+        "lng": "-9.14092004299164"
+      }
     }
   ]
 }
